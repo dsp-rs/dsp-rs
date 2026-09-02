@@ -1,0 +1,30 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/ed25519-key-2020/v1"
+  ],
+  "id": "did:web:issuer-did-server",
+  "verificationMethod": [
+    {
+      "id": "did:web:issuer-did-server#9vuaJyUxRx4KmHyoZ9kjJxMs_mjpnnf-mPM9nPMG51A",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:issuer-did-server",
+      "publicKeyJwk": {
+        "kty": "EC",
+        "crv": "P-256",
+        "x": "G0RINBiF-oQUD3d5DGnegQuXenI29JDaMGoMvioKRBM",
+        "y": "ed3eFGs2pEtrp7vAZ7BLcbrUtpKkYWAT2JPUQK4lN4E"
+      }
+    }
+  ],
+  "authentication": [
+    {
+      "id": "did:web:issuer-did-server#9vuaJyUxRx4KmHyoZ9kjJxMs_mjpnnf-mPM9nPMG51A"
+    }
+  ],
+  "assertionMethod": [
+    {
+      "id": "did:web:issuer-did-server#9vuaJyUxRx4KmHyoZ9kjJxMs_mjpnnf-mPM9nPMG51A"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "participant_info": {
+    "id": "Connector under Test",
+    "external_address": "http://localhost:3000"
+  },
+  "private_key_pem": "-----BEGIN PRIVATE KEY-----\r\nMIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgZSL1BoLkGm8MArlQ\r\nm60MC/g5J+38YsAycU1hukHQg3ehRANCAAQNLDb617BSV/8pn5Z/exH3sS2rMkes\r\n5ZBcTa62LI1MRsxdz5kut+l2YWH79puf51LHNRSr35RT+smF3DcFjgg3\r\n-----END PRIVATE KEY-----",
+  "verifier_url": "",
+  "issuer_url": "",
+  "allowed_issuers": [],
+  "wallet_url": "",
+  "wallet_id": "",
+  "federation": {}
+}

@@ -1,0 +1,3 @@
+[submodule "third_party/dsp-spec"]
+	path = third_party/dsp-spec
+	url = https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol.git

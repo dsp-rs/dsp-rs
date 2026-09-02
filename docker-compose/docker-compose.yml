@@ -1,0 +1,110 @@
+services:
+  # ==========================================
+  # CREDENTIALS ISSUER
+  # ==========================================
+  issuer:
+    image: ${ISSUER_IMAGE}
+    container_name: issuer
+    # command: ["-l", "trace"]
+    volumes:
+      - ./issuer/config:/waltid-issuer-api2/config:ro
+    networks:
+      - ssi-network
+    ports:
+      - "7002:7002"
+
+  issuer-did-server:
+    image: nginx:alpine
+    container_name: issuer-did-server
+    networks:
+      - ssi-network
+    ports:
+      - "17002:80"
+    volumes:
+      - ./issuer/did.json:/usr/share/nginx/html/.well-known/did.json:ro
+
+  # ==========================================
+  # PARTY A
+  # ==========================================
+  party-a-connector:
+    image: ${CONNECTOR_IMAGE}
+    platform: linux/amd64
+    container_name: party-a-connector
+    volumes:
+      - ./party-a/connector/config.json:/app/config.json:ro
+      - ./party-a/connector/data:/app/data
+    networks:
+      - ssi-network
+    ports:
+      - "13000:3000"
+    depends_on:
+      - party-a-wallet
+      - party-a-verifier
+
+  party-a-wallet:
+    image: ${WALLET_IMAGE}
+    container_name: party-a-wallet
+    # command: ["-l", "trace"]
+    volumes:
+      - ./party-a/wallet/config:/waltid-wallet-api2/config:ro
+      - ./party-a/wallet/data:/data
+    networks:
+      - ssi-network
+    ports:
+      - "17005:7005"
+
+  party-a-verifier:
+    image: ${VERIFIER_IMAGE}
+    container_name: party-a-verifier
+    command: ["-l", "trace"]
+    volumes:
+      - ./party-a/verifier:/waltid-verifier-api2/config:ro
+    networks:
+      - ssi-network
+    ports:
+      - "17003:7003"
+
+  # ==========================================
+  # PARTY B
+  # ==========================================
+  party-b-connector:
+    image: ${CONNECTOR_IMAGE}
+    platform: linux/amd64
+    container_name: party-b-connector
+    volumes:
+      - ./party-b/connector/config.json:/app/config.json:ro
+      - ./party-b/connector/data:/app/data
+    networks:
+      - ssi-network
+    ports:
+      - "23000:3000"
+    depends_on:
+      - party-b-wallet
+      - party-b-verifier
+
+  party-b-wallet:
+    image: ${WALLET_IMAGE}
+    container_name: party-b-wallet
+    volumes:
+      - ./party-b/wallet/config:/waltid-wallet-api2/config:ro
+      - ./party-b/wallet/data:/data
+    networks:
+      - ssi-network
+    ports:
+      - "27005:7005"
+
+  party-b-verifier:
+    image: ${VERIFIER_IMAGE}
+    container_name: party-b-verifier
+    command: ["-l", "trace"]
+    volumes:
+      - ./party-b/verifier:/waltid-verifier-api2/config:ro
+    networks:
+      - ssi-network
+    ports:
+      - "27003:7003"
+
+networks:
+  ssi-network:
+    driver: bridge
+

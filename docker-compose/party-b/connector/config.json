@@ -1,0 +1,19 @@
+{
+  "participant_info": {
+    "id": "Participant B",
+    "external_address": "http://party-b-connector:3000"
+  },
+  "private_key_pem": "-----BEGIN PRIVATE KEY-----\r\nMIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyXaPLDXryoTFztCs\r\n4NK1lAEXVlV90auLyuD2l7lPO8ihRANCAASWBASsz7Vlb8vqHBM71HfDLe0B4V9G\r\npXqnybHHufxG0U6bhGR5KnukTHqEDFLxEp+eS88qGQtMzG7DB9o3Nzg7\r\n-----END PRIVATE KEY-----",
+  "issuer_url": "http://issuer:7002",
+  "verifier_url": "http://party-b-verifier:7003",
+  "wallet_url": "http://party-b-wallet:7005",
+  "wallet_id": "344cb7a5-6b20-4090-b7fd-a327b5a774a4",
+  "allowed_issuers": [
+    "did:web:issuer-did-server"
+  ],
+  "federation": {
+    "party-a": {
+      "remote_address": "http://party-a-connector:3000"
+    }
+  }
+}
