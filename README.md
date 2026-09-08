@@ -4,6 +4,10 @@
 
 Use the provided [build.sh](build.sh) script for compiling the connector binary and creating a local Docker container.
 
+Note: The DSP specification is included via a submodule. Refer to
+[DSP spec issue 265](https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol/issues/265),
+which outlines the required patches for certain schema files.
+
 ## Setup and usage instructions
 
 The `docker-compose` folder contains a demo setup with two dataspace participants:
@@ -17,5 +21,5 @@ The `docker-compose` folder contains a demo setup with two dataspace participant
 RUST_LOG=debug CONFIG_PATH="tck/config.json" cargo run --bin dsp-rs --features tck
 ```
 
-The TCK configuration is provided in [dsp-rs.tck.properties](dsp-rs.tck.properties). Further information about running
+The TCK configuration is provided in [dsp-rs.tck.properties](tck/dsp-rs.tck.properties). Further information about running
 the test suite can be found on the official [repo](https://github.com/eclipse-dataspacetck/dsp-tck).
